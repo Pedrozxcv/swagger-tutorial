@@ -2,7 +2,7 @@
 
 (Under construction)
 
-Requirements:
+Requirements for this tutorial:
 
 1. NodeJS
 2. MongoDB
@@ -30,3 +30,20 @@ Now that we have our project created, we need to start preparing some endpoints 
 * endpoint routing and validation
 * documentation
 * synthax highlighting for YAML
+
+
+Swagger has an awesome feature that provides us mock data so we can focus on the design of endpoints first and take care of what which endpoint will do later.
+
+For that we need to start running our main file which is **app.js** located **path_to_your_project/app.js**. In a standard node API or when we desire to move the API to production, we would launch it by using **node app.js** but in this case we will launch it by using:
+
+> swagger <project_name> start -m
+
+Swagger will restart our project everytime changes are made, so we don't need to be always starting the API.
+
+**-m** - means that we will launch the project in mock data mode
+
+After we have our API running, we need to start our editor to start creating our endpoints. In order to launch the editor we will use:
+
+> swagger project edit
+
+If everything went well the editor should open a new tab in your browser.
