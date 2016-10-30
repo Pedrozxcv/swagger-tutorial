@@ -11,9 +11,10 @@ ___
 
 ## Index
 
-1. [Setting up the project](#project-setup)
+1. [Setting up the project](#setting-up-the-project)
 
-(#project-setup)
+# Setting up the project
+
 First we need to install the swagger module globally. For that we will use the following command:
 
 > npm install -g swagger
