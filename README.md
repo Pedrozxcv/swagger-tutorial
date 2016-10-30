@@ -13,7 +13,7 @@ ___
 
 1. [Setting up the project](#setting-up-the-project)
 2. [Creating endpoints](#creating-endpoints)
-  1. GET Endpoint
+ 1. [GET](##get)
 
 # Setting up the project
 
@@ -56,3 +56,5 @@ After we have our API running, we need to start our editor to start creating our
 If everything went well the editor should open a new tab in your browser.
 
 # Creating endpoints
+
+## GET
