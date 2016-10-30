@@ -9,6 +9,11 @@ Requirements for this tutorial:
 
 ___
 
+## Index
+
+1. [Setting up the project](#project-setup)
+
+(#project-setup)
 First we need to install the swagger module globally. For that we will use the following command:
 
 > npm install -g swagger
