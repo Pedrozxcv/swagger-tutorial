@@ -19,7 +19,7 @@ After, we will create our project using the swagger module by using the followin
 > swagger project create <project_name>
 
 
-For this example we will create a image gallery, so I will use
+For this example I will create a image gallery, so I will use
 
 > swagger project create image-gallery
 
@@ -29,4 +29,4 @@ Now that we have our project created, we need to start preparing some endpoints 
 
 * endpoint routing and validation
 * documentation
-* easy to read and interpret YAML
+* synthax highlighting for YAML
