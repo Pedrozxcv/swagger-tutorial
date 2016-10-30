@@ -2,10 +2,10 @@
 
 (Under construction)
 
-Requirements for this tutorial:
+### Requirements for this tutorial:
 
-1. NodeJS
-2. MongoDB
+1. [NodeJS](https://nodejs.org/en/)
+2. [MongoDB](https://www.mongodb.com/)
 
 ___
 
