@@ -12,9 +12,10 @@ ___
 ## Index
 
 1. [Setting up the project](#setting-up-the-project)
-2. [Creaating endpoints](#creating-endpoints)
+2. [Creating endpoints](#creating-endpoints)
+  ⋅⋅1. GET Endpoint
 
-# 1. Setting up the project
+# Setting up the project
 
 First we need to install the swagger module globally. For that we will use the following command:
 
@@ -54,4 +55,4 @@ After we have our API running, we need to start our editor to start creating our
 
 If everything went well the editor should open a new tab in your browser.
 
-# 2. Creating endpoints
+# Creating endpoints
