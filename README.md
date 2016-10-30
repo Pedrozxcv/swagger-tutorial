@@ -12,8 +12,9 @@ ___
 ## Index
 
 1. [Setting up the project](#setting-up-the-project)
+2. [Creaating endpoints](#creating-endpoints)
 
-# Setting up the project
+# 1. Setting up the project
 
 First we need to install the swagger module globally. For that we will use the following command:
 
@@ -52,3 +53,5 @@ After we have our API running, we need to start our editor to start creating our
 > swagger project edit
 
 If everything went well the editor should open a new tab in your browser.
+
+# 2. Creating endpoints
