@@ -16,7 +16,7 @@ First we need to install the swagger module globally. For that we will use the f
 
 After, we will create our project using the swagger module by using the following command:
 
-> swagger project create <project_name>
+> swagger project create project_name
 
 
 For this example I will create a image gallery, so I will use
@@ -36,7 +36,7 @@ Swagger has an awesome feature that provides us mock data so we can focus on the
 
 For that we need to start running our main file which is **app.js** located **path_to_your_project/app.js**. In a standard node API or when we desire to move the API to production, we would launch it by using **node app.js** but in this case we will launch it by using:
 
-> swagger <project_name> start -m
+> swagger project_name start -m
 
 Swagger will restart our project everytime changes are made, so we don't need to be always starting the API.
 
