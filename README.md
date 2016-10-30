@@ -1,3 +1,8 @@
 # swagger-tutorial
 
-Comming soon.
+(Under construction)
+
+Requirements:
+
+1. NodeJS
+2. MongoDB
