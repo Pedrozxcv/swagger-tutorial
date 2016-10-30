@@ -29,14 +29,14 @@ Now that we have our project created, we need to start preparing some endpoints 
 
 * endpoint routing and validation
 * documentation
-* synthax highlighting for YAML__
+* synthax highlighting for YAML
 
 Swagger has an awesome feature that provides us mock data so we can focus on the design of endpoints first and take care of what which endpoint will do later.
 
 Now, we need to start running our main file which is **app.js** located **path_to_your_project/app.js**. In a standard node API, we would launch it by using **node app.js** but in this case we will launch it by using:
-<br/>
+
 > swagger project_name start -m
-<br/>
+
 Swagger will restart our project everytime changes are made, so we don't need to be always restarting the API.
 
 **-m** - means that we will launch the project in mock data mode
