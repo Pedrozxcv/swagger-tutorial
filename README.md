@@ -14,6 +14,9 @@ ___
 1. [Setting up the project](#setting-up-the-project)
 2. [Creating endpoints](#creating-endpoints)
  1. [GET](#get)
+ 2. [POST](#post)
+ 3. [PUT](#put)
+ 4. [DELETE](#delete)
 
 # Setting up the project
 
