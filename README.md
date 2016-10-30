@@ -13,7 +13,7 @@ ___
 
 1. [Setting up the project](#setting-up-the-project)
 2. [Creating endpoints](#creating-endpoints)
- 1. [GET](#GET)
+ 1. [GET](#get)
 
 # Setting up the project
 
