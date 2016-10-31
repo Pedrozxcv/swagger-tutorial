@@ -17,6 +17,7 @@ ___
  2. [POST](#post)
  3. [PUT](#put)
  4. [DELETE](#delete)
+3. [Coding the endpoints](#coding-the-endpoints)
 
 # Setting up the project
 
@@ -238,3 +239,9 @@ delete:
               $ref: "#/definitions/Response"
 ```
 Very similiar to the code used in the **PUT** request minus the product parameter. To delete a product we just need to know its id, so it doesn't make sense to have any other parameter besides the id.
+
+# Coding the endpoints
+
+In this phase, we will create all the code behind the endpoints
+
+...
