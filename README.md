@@ -105,3 +105,34 @@ Response:
   - **type** - the type of the property
   - **description** - a description for that property
 - **required** - which one of the properties in the object is required, in this case only the **error** and **message** properties will be required
+
+After all this is done, we should be able to test it using the editor.
+
+## POST
+
+After the **GET** endpoint is created, let's create a endpoint to insert a new product in our database. First, we will go under the previous endpoint path which was **/product**. After all the code related to the **GET** request, we will write the following:
+
+```yaml
+post:
+      description: Adds a new product
+      parameters:
+        - name: product
+          description: Product parameters
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+```
+
+- **parameters** - the parameters which the endpoint will receive
+  - **name** - the name of the parameter
+  - **description** - the description of the parameter
+  - **in** - where will this parameter be (path, body, formData, etc...)
+  - **required** - if this parameter is required or not
+  - **schema** - the schema that will be used. This schema is defined under the **definitions** tag.
+- **responses** - same as described in the **GET** request
