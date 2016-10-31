@@ -217,3 +217,24 @@ The schema is very similar to the one we used in the **POST** request, however t
 
 - Use the same schema for the **POST** and **PUT** requests but we will need to do extra validation in the code afterwards
 - Use different schemas for the **POST** and **PUT** requests but reduce the ammount of validation needed in the code
+
+## DELETE
+
+Finally, we will create the **DELETE** endpoint so that we can delete a product if needed. We will use the same path as the **PUT** request (**/product/{id}**). After the **PUT** code, let's create the following:
+
+```yaml
+delete:
+        description: Used to delete a product
+        parameters:
+          - name: id
+            type: string
+            description: Product Id
+            required: true
+            in: path
+        responses:
+          200:
+            description: Success
+            schema:
+              $ref: "#/definitions/Response"
+```
+Very similiar to the code used in the **PUT** request minus the product parameter. To delete a product we just need to know its id, so it doesn't make sense to have any other parameter besides the id.
