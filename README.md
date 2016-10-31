@@ -136,3 +136,84 @@ post:
   - **required** - if this parameter is required or not
   - **schema** - the schema that will be used. This schema is defined under the **definitions** tag.
 - **responses** - same as described in the **GET** request
+
+Now let's create our Product schema/model. Go to the definitions tag and write the following:
+
+```yaml
+Product:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Product name
+      price:
+        type: string
+        description: Product price
+      category:
+        type: array
+        description: Product categories
+        items:
+            type: string
+      description:
+        type: string
+        description: Product description
+    required:
+      - name
+      - price
+      - category
+```
+This schema definition is very similiar to the one done in the **GET** request for the response schema. Basically, we defined what the endpoing will be expecting. In this case, the endpoint is expecting an object with name, price, category, description properties, in which only the name, price and category are required.
+
+Now that we have our schema/model created, we should be able to test the endpoint using the editor.
+
+## PUT
+
+Now let's create a **PUT** endpoint so that we are able to update the information of our products. For this, we need to create a new path because the older one (**/product**) doesn't allow us to send an id. Let's do something similiar to this:
+
+```yaml
+/product/{id}:
+      x-swagger-router-controller: product
+      put:
+        description: Used to update the information of a product
+        parameters:
+          - name: id
+            in: path
+            required: true
+            type: string
+          - name: product
+            in: body
+            required: true
+            schema:
+              $ref: "#/definitions/EditProduct"
+        responses:
+          200:
+            description: Success
+            schema:
+              $ref: "#/definitions/Response"
+```
+This very similar to what we've done in the **POST** request but this time the endpoint is expecting an **id** to be sent via path. In order to get this working, we need to create an id in the parameters and say that it will come via path and it will be a String.
+Now let's create our EditProduct schema.
+
+```yaml
+EditProduct:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Product name
+      price:
+        type: string
+        description: Product price
+      category:
+        type: array
+        description: Product categories
+        items:
+            type: string
+      description:
+        type: string
+        description: Product description
+```
+The schema is very similar to the one we used in the **POST** request, however this one doesn't have the **required** tag. We can do this in two ways:
+
+- Use the same schema for the **POST** and **PUT** requests but we will need to do extra validation in the code afterwards
+- Use different schemas for the **POST** and **PUT** requests but reduce the ammount of validation needed in the code
