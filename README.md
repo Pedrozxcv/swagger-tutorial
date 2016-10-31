@@ -79,7 +79,7 @@ First, we will create an endpoint to get all the movies that are in our database
           schema:
             $ref: "#/definitions/ErrorResponse"
 ```
-- **x-swagger-router-controller** - this our controller file. This file will need to be on **path_to_your_project/api/controller/product.js**
+- **x-swagger-router-controller** - this our controller file. This file will need to be on **path_to_project/api/controller/product.js**
 - **get** - this is where we define our request type, in this case it will be a GET request
 - **description** - description about the endpoint. This will be useful for the documentation.
-- **responses** - the possible outcomes of this endpoint. If the response code is "200", everything went okay we will return an object defined in our **definitions**, if there was an error, we will return another error defined in the **definitions** aswell.
+- **responses** - the possible outcomes of this endpoint. These outcomes will be defined under the **definitions** tag in our swagger.yaml file
