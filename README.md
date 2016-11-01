@@ -20,6 +20,7 @@ ___
 3. [Coding the endpoints](#coding-the-endpoints)
  1. [GET](#get-endpoint)
  2. [POST](#post-endpoint)
+ 3. [PUT](#put-endpoint)
 
 # Setting up the project
 
@@ -359,4 +360,52 @@ product.save(function(error)
 });
 ```
 
-Don't forget to add the **operationId** and **to export the function**
+Don't forget to add the **operationId** in the swagger editor and **to export the function** in the controller file
+
+## PUT endpoint
+
+Now it's time to create the endpoint that will allow a product to be updated. Let's create the function
+
+```node
+function updateProduct(req, res, next)
+{
+  
+}
+```
+Let's query the database to find the product that matches the id provided in the request
+
+```node
+var id = req.swagger.params.id.value;
+Product.findOne({"_id" : id}, function(error, product)
+{
+  if(error)
+  {
+    res.json({ error: true, message: error });
+  }
+  if(typeof product !== 'undefined' && product != null)
+  {
+
+  }
+  else 
+  {
+    res.json({ error: true, message: "The id received didn't match any product" });
+  }
+});
+```
+In the code above we query the database and validate if the id matches any of the products. If it doesn't match we return an error, else we are ready to update our product
+
+```node
+product.name = (typeof req.swagger.params.product.value.name !== 'undefined') ? req.swagger.params.product.value.name : product.name;
+product.price = (typeof req.swagger.params.product.value.price !== 'undefined') ? req.swagger.params.product.value.price : product.price;
+product.category = (typeof req.swagger.params.product.value.category !== 'undefined') ? req.swagger.params.product.value.category : product.category;
+product.description = (typeof req.swagger.params.product.value.description !== 'undefined') ? req.swagger.params.product.value.description : product.description;
+product.save(function(error)
+{
+  if(error)
+  {
+    res.json({ error: true, message: error });
+  }
+  res.json({ error: false, message: "Product updated"});
+});
+```
+As always, don't forget to add the operationId in your swagger editor and to export the function in your controller file.
