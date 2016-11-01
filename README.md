@@ -243,11 +243,11 @@ Very similiar to the code used in the **PUT** request minus the product paramete
 
 # Coding the endpoints
 
-In this phase, we will create all the code behind the endpoints. First we should leave the mock data mode. Stop the swagger and starting in normal mode by using:
+In this phase, we will create all the code behind the endpoints. First we should leave the mock data mode. Stop the swagger and start it in normal mode by using:
 
 ```swagger project start```
 
-After we will create our controller file. Note that every endpoint points to the same controller (**x-swagger-router-controller: product**), so we need to create **product.js** inside **path_to_project/api/controller/**
+After, we will create our controller file. Note that every endpoint points to the same controller (**x-swagger-router-controller: product**), so we need to create **product.js** inside **path_to_project/api/controller/**
 
 ## GET endpoint
 
