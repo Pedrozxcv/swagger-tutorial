@@ -21,7 +21,7 @@ ___
  1. [GET](#get-endpoint)
  2. [POST](#post-endpoint)
  3. [PUT](#put-endpoint)
-
+ 4. [DELETE](#delete-endpoint)
 # Setting up the project
 
 First we need to install the swagger module globally. For that we will use the following command:
@@ -409,3 +409,38 @@ product.save(function(error)
 });
 ```
 As always, don't forget to add the operationId in your swagger editor and to export the function in your controller file.
+
+## DELETE endpoint
+
+Let's create the endpoint that will allow a product to be deleted. Create the function
+
+```node
+function deleteProduct(req, res, next)
+{
+  
+}
+```
+
+and finally let's remove the product that matches the id received in the request
+
+```node
+var id = req.swagger.params.id.value;
+Product.findByIdAndRemove(id, function(error, product)
+{
+  if(error)
+  {
+      res.json({ error: true, message: error });
+  }
+  if(typeof product !== 'undefined' && product != null)
+  {
+      res.json({ error: false, message: "Product removed" });
+  }
+  else
+  {
+      res.json({ error: true, message: "The id received didn't match any product" });
+  }
+});
+```
+
+Same as the PUT request, check if any product matches the id in the request, if it does the product is remove, if it doesn't return an error.
+Add the operationId and export the function and we have an API with CRUD operations done.
