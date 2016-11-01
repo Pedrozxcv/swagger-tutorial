@@ -18,6 +18,7 @@ ___
  3. [PUT](#put)
  4. [DELETE](#delete)
 3. [Coding the endpoints](#coding-the-endpoints)
+ 1. [GET](#get)
 
 # Setting up the project
 
@@ -244,4 +245,4 @@ Very similiar to the code used in the **PUT** request minus the product paramete
 
 In this phase, we will create all the code behind the endpoints
 
-...
+## GET
