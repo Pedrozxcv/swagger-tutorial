@@ -269,7 +269,7 @@ var mongoose = require('mongoose');
 var Product = new mongoose.Schema({
   name: String,
   price: String,
-  category: [type: String],
+  category: [String],
   description: { type: String , default: null },
 });
 
@@ -303,9 +303,19 @@ Product.find({}, function(error, products)
   {
     res.json({ error: true, message: error });
   }
-  res.json({ error: false, message: products });
+  res.json({ error: false, message: "Products retrieved", data : {products : products}});
 });
 ```
 What this function does is: queries the database for all products and sends an error (if one occured) or the products.
 
-To finalize this endpoint we need to do two things, first in our **swagger.yaml** we need to point to the function that will do what we want. Open your swagger editor and add
+To finalize this endpoint we need to do two things, first in our **swagger.yaml** we need to point to the function that will do what we want. Open your swagger editor, go to the get endpoint and add 
+
+```yaml
+operationId: getProducts
+```
+
+Afterwards we need to make our function available. To make the function available add the following code to your controller file (in this case **product.js**)
+
+```node
+module.exports = {getProducts}
+```
