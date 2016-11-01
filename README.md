@@ -1,7 +1,5 @@
 # swagger-tutorial
 
-(Under construction)
-
 ### Requirements for this tutorial:
 
 1. [NodeJS](https://nodejs.org/en/)
