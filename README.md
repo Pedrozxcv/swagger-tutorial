@@ -447,4 +447,4 @@ Same as the PUT request, check if any product matches the id in the request, if 
 
 Add the operationId and export the function and we have an API with CRUD operations done.
 
-**All the code is in the repository, so if you any doubt you can check the code or you can contact me. Have a nice day.**
+**All the code is in the repository, so if you have any doubt you can check the code or you can contact me. Have a nice day.**
