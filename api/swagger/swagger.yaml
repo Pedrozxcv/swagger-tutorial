@@ -1,0 +1,140 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Product List
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+paths:
+  /product:
+    x-swagger-router-controller: product
+    get:
+      operationId: getProducts
+      description: get the product list
+      responses:
+        "200":
+          description: If the error property is true, there was an error, if not everything went fine.
+          schema:
+            $ref: "#/definitions/Response"
+    post:
+      operationId: createProduct
+      description: Adds a new product
+      parameters:
+        - name: product
+          description: Product parameters
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/Product"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"        
+  /product/{id}:
+    x-swagger-router-controller: product
+    put:
+      operationId: updateProduct
+      description: Used to update the information of a product
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: product
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/EditProduct"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"          
+    delete:
+      operationId: deleteProduct
+      description: Used to delete a product
+      parameters:
+        - name: id
+          type: string
+          description: Product Id
+          required: true
+          in: path
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/Response"
+            
+            
+  /swagger:
+    x-swagger-pipe: swagger_raw
+    
+# complex objects have schema definitions
+definitions:
+
+  Response:
+      type: object
+      properties:
+        error:
+          type: boolean
+          description: returns false if there isn't an error or true if there is an error
+        message:
+          type: string
+          description: error message or success message
+        data:
+          type: object
+          description: data
+      required:
+        - error
+        - message
+  Product:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Product name
+      price:
+        type: string
+        description: Product price
+      category:
+        type: array
+        description: Product categories
+        items:
+            type: string
+      description:
+        type: string
+        description: Product description
+    required:
+      - name
+      - price
+      - category
+  EditProduct:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Product name
+      price:
+        type: string
+        description: Product price
+      category:
+        type: array
+        description: Product categories
+        items:
+            type: string
+      description:
+        type: string
+        description: Product description
