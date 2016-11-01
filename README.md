@@ -47,7 +47,7 @@ Swagger has an awesome feature that provides us mock data so we can focus on the
 
 Now, we need to start running our main file which is **app.js** located **path_to_project/app.js**. In a standard node API, we would launch it by using **node app.js** but in this case we will launch it by using:
 
-```swagger project_name start -m```
+```swagger project start -m```
 
 Swagger will restart our project everytime changes are made, so we don't need to be always restarting the API like we normally do.
 
