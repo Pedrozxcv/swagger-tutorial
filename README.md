@@ -249,5 +249,63 @@ In this phase, we will create all the code behind the endpoints. First we should
 
 After, we will create our controller file. Note that every endpoint points to the same controller (**x-swagger-router-controller: product**), so we need to create **product.js** inside **path_to_project/api/controller/**
 
+Now let's create our product model. In this example we will use mongoose. To install mongoose run:
+
+```npm install mongoose --save```
+
+Create a new database in MongoDB, mine will be called **product-list**.
+
+In our **app.js** file located in **path_to_project/** we will need to connect to our mongoDB database. In order to achieve that we will need to add the following code:
+
+```node
+var mongoose = require('mongoose');
+mongoose.connect("mongodb://127.0.0.1:27017/db-name");
+```
+Finally, let's create our product model. Create a new folder called **models** inside **path_to_project/api/**. Afterwards, create the file that will contain the model. In this case, create a **product.js** file inside **path_to_project/api/models/**. Inside that file let's insert the following:
+
+```node
+var mongoose = require('mongoose');
+
+var Product = new mongoose.Schema({
+  name: String,
+  price: String,
+  category: [type: String],
+  description: { type: String , default: null },
+});
+
+module.exports = mongoose.model("Product", Product);
+```
+Now we're ready to start coding our endpoints.
+
 ## GET endpoint
 
+In our **product.js** file inside **path_to_project/api/controllers/** let's start by importing our product model. To do that add the following line to your file:
+
+```node
+var Product = require("../models/product");
+```
+
+After let's create a function like this: 
+
+```node
+function getProducts(req, res, next)
+{
+
+}
+```
+
+Inside that function we will query the database to get all the products. To do that add these lines into the function:
+
+```node
+Product.find({}, function(error, products)
+{
+  if(error)
+  {
+    res.json({ error: true, message: error });
+  }
+  res.json({ error: false, message: products });
+});
+```
+What this function does is: queries the database for all products and sends an error (if one occured) or the products.
+
+To finalize this endpoint we need to do two things, first in our **swagger.yaml** we need to point to the function that will do what we want. Open your swagger editor and add
