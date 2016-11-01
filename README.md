@@ -442,5 +442,8 @@ Product.findByIdAndRemove(id, function(error, product)
 });
 ```
 
-Same as the PUT request, check if any product matches the id in the request, if it does the product is removed, if it doesn't return an error.
+Same as the PUT request, check if any product matches the id in the request, if it does the product is removed, if it doesn't return an error. 
+
 Add the operationId and export the function and we have an API with CRUD operations done.
+
+All the code is in the repository, so if you any doubt you check the code or contact me. Have a nice day.
