@@ -19,6 +19,7 @@ ___
  4. [DELETE](#delete)
 3. [Coding the endpoints](#coding-the-endpoints)
  1. [GET](#get-endpoint)
+ 2. [POST](#post-endpoint)
 
 # Setting up the project
 
@@ -319,3 +320,43 @@ Afterwards we need to make our function available. To make the function availabl
 ```node
 module.exports = {getProducts}
 ```
+## POST endpoint
+
+Now let's create the code to post a product. Let's start like the previous one, by creating a function
+
+```node
+function createProduct(req, res, next)
+{
+  
+}
+```
+
+Now let's declare a product object inside our function
+
+```node
+var product = new Product({});
+```
+
+Now let's save the properties received in the request into our object
+
+```node
+product.name = req.swagger.params.product.value.name;
+product.price = req.swagger.params.product.value.price;
+product.category = req.swagger.params.product.value.category;
+product.description = req.swagger.params.product.value.description;
+```
+
+Finally, let's save the product into the database
+
+```node
+product.save(function(error)
+{
+  if(error)
+  {
+    res.json({ error: true, message: error });
+  }
+  res.json({ error: false, message: "Product created"});
+});
+```
+
+Don't forget to add the **operationId** and **to export the function**
